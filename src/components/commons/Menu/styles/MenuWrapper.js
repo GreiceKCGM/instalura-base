@@ -9,6 +9,7 @@ export const MenuWrapper = styled.nav`
   margin-top: 18px;
   padding-left: 28px;
   padding-right: 28px;
+  
 
 `;
 
@@ -31,6 +32,20 @@ MenuWrapper.CentralSide = styled.div`
   border-top: 1px solid #88989E;
   border-bottom: 1px solid #88989E;
   padding: 12px;
+
+  a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #88989E;
+    transition: 200ms ease-in-out;
+    &:hover,
+    &:focus {
+      font-weight: 500;
+      color: #070C0E;
+      
+    }
+  }
 
 `;
 

@@ -22,7 +22,7 @@ export const Button = styled.button`
     font-weight: bold;
     opacity: 1;
     border-radius: 8px;
-    ${function(props) {
+    ${(props) => {
         // console.log('<Button/>', props.variant, props.theme);
         if(props.ghost) {
             return ButtonGhost;

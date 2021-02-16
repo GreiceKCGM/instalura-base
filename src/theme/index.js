@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
     background: {
       light: {
         color: '#FFFFFF',
@@ -41,6 +41,7 @@ const colors = {
 
 export default {
     colors,
-    borderRadius: '8px',
+    borderRadius: '12px',
+    fontFamily: '\'Rubik\', sans-serif',
     transition: '200ms ease-in-out',
   }
