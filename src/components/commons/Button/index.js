@@ -32,7 +32,7 @@ export const Button = styled.button`
         return ButtonDefault
     }}
     transition: opacity ${({ theme }) => theme.transition};
-    border-radius: ${({ props }) => props.theme.borderRadius};
+    border-radius: ${({ theme }) => theme.borderRadius};
     /* ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)} */
     &:hover,
     &:focus {
