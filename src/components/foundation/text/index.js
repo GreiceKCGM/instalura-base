@@ -41,11 +41,12 @@ export default function Text({ tag, variant, children }) {
     );
 }
 
+
 Text.propTypes = {
-    tag: PropTypes.string.isRequired,
-    variant: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
-}
+    tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'a', 'span']),
+    variant: PropTypes.oneOf(['paragraph1', 'smallestException']),
+};
 
 Text.defaultProps = {
     tag: 'span',

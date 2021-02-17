@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
-import { TextStyleVariants } from '../../../foundation/Text';
+import { TextStyleVariants } from '../../../foundation/text';
 
 export const MenuWrapper = styled.nav`
   font-family: 'Rubik', sans-serif;
@@ -80,7 +80,7 @@ MenuWrapper.CentralSide = styled.div`
     text-decoration: none;
     color: #88989E;
     transition: 200ms ease-in-out;
-
+    
     ${breakpointsMedia({
     xs: css`
         ${TextStyleVariants.smallestException}
