@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import styled, { css } from 'styled-components';
 
 
-export const TextStyleVariantsMap = {
+export const TextStyleVariants = {
     paragraph1: css`
         font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontiSize};
         font-Weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontiWeight};
@@ -24,7 +24,7 @@ export const TextStyleVariantsMap = {
 const TextBase = styled.span `
    /* ${({ variant }) => TextStyleVariants[variant]}
   color: ${({ theme, color }) => get(theme, `colors.${color}.color`)}; */
-  ${(props) => TextStyleVariantsMap[props.variants]}
+  ${(props) => TextStyleVariants[props.variants]}
 
 `;
 

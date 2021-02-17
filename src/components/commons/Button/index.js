@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
-import { TextStyleVariantsMap } from '../../foundation/text';
+import { TextStyleVariants } from '../../foundation/text';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 
@@ -45,11 +45,11 @@ export const Button = styled.button`
     ${breakpointsMedia({
         xs: css`
             /*All devices*/
-            ${TextStyleVariantsMap.smallestException}
+            ${TextStyleVariants.smallestException}
         `,
         md: css`
             /* From md breakpoint*/
-            ${TextStyleVariantsMap.paragraph1}
+            ${TextStyleVariants.paragraph1}
         `,
     })}
 
