@@ -1,38 +1,76 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import styled, { css } from 'styled-components';
+import styled,{ css } from 'styled-components';
+import { propToStyle } from '../../../theme/utils/propToStyle';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
+
+const paragraph1 = css`
+  ${({ theme }) => css`
+    font-size: ${theme.typographyVariants.paragraph1.fontSize};
+    font-weight: ${theme.typographyVariants.paragraph1.fontWeight};
+    line-height: ${theme.typographyVariants.paragraph1.lineHeight};
+  `}
+`;
+
+const smallestException = css`
+  ${({ theme }) => css`
+    font-size: ${theme.typographyVariants.smallestException.fontSize};
+    font-weight: ${theme.typographyVariants.smallestException.fontWeight};
+    line-height: ${theme.typographyVariants.smallestException.lineHeight};
+  `}
+`;
 
 export const TextStyleVariants = {
-    paragraph1: css`
-        font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontiSize};
-        font-Weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontiWeight};
-        line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
-
+    smallestException,
+    paragraph1,
+    title: css`
+      ${({ theme }) => css`
+        font-size: ${theme.typographyVariants.titleXS.fontSize};
+        font-weight: ${theme.typographyVariants.titleXS.fontWeight};
+        line-height: ${theme.typographyVariants.titleXS.lineHeight};
+      `}
+      ${breakpointsMedia({
+        md: css`
+          ${({ theme }) => css`
+            font-size: ${theme.typographyVariants.title.fontSize};
+            font-weight: ${theme.typographyVariants.title.fontWeight};
+            line-height: ${theme.typographyVariants.title.lineHeight};
+          `}
+        `,
+      })}
     `,
-
-    smallestException: css`
-        font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontiSize};
-        font-Weight: ${({ theme }) => theme.typographyVariants.smallestException.fontiWeight};
-        line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight};
-
-    `,
-}
+  };
 
 
 const TextBase = styled.span `
-   /* ${({ variant }) => TextStyleVariants[variant]}
-  color: ${({ theme, color }) => get(theme, `colors.${color}.color`)}; */
+  
   ${(props) => TextStyleVariants[props.variants]}
+
+   ${propToStyle('textAlign')}
+   ${propToStyle('marginBottom')}
+   ${propToStyle('margin')}
+
+
+/* 
+  ${function(props) { 
+      return propToStyle('textAlign', props);
+  }} */
+
+  /* ${function(props){
+      console.log(props)
+
+  }} */
 
 `;
 
-export default function Text({ tag, variant, children }) {
+export default function Text({ tag, variant, children, ...props }) {
     return (
         <TextBase 
             as={tag}
             variant={variant}
+            {...props}
         >
             
             {children}
