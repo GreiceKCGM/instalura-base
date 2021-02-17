@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/text';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 
 const ButtonGhost = css`
@@ -26,10 +27,6 @@ export const Button = styled.button`
     border-radius: 8px;
     
 
-    
-
-    ${TextStyleVariantsMap.smallestException}
-
     ${(props) => {
         // console.log('<Button/>', props.variant, props.theme);
         if(props.ghost) {
@@ -48,29 +45,14 @@ export const Button = styled.button`
     ${breakpointsMedia({
         xs: css`
             /*All devices*/
+            ${TextStyleVariantsMap.smallestException}
         `,
         md: css`
             /* From md breakpoint*/
+            ${TextStyleVariantsMap.paragraph1}
         `,
     })}
 
-    ${function(props) {
-        console.log('Button', props.theme.breakpoints);
-
-        
-
-        return `
-            @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
-
-            }
-            @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
-
-            }
-            @media screen and (min-width: ${props.theme.breakpoints.md}px) {
-
-            }
-        
-        `
-    }}
+    
 
 `;
