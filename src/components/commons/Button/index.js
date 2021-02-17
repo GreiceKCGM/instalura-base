@@ -24,6 +24,9 @@ export const Button = styled.button`
     font-weight: bold;
     opacity: 1;
     border-radius: 8px;
+    
+
+    
 
     ${TextStyleVariantsMap.smallestException}
 
@@ -41,5 +44,33 @@ export const Button = styled.button`
     &:focus {
       opacity: .5;
     }
+
+    ${breakpointsMedia({
+        xs: css`
+            /*All devices*/
+        `,
+        md: css`
+            /* From md breakpoint*/
+        `,
+    })}
+
+    ${function(props) {
+        console.log('Button', props.theme.breakpoints);
+
+        
+
+        return `
+            @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
+
+            }
+            @media screen and (min-width: ${props.theme.breakpoints.xs}px) {
+
+            }
+            @media screen and (min-width: ${props.theme.breakpoints.md}px) {
+
+            }
+        
+        `
+    }}
 
 `;
