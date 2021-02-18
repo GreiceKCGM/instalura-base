@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
 // CSS Reset
- const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
     }
@@ -13,7 +13,7 @@ import { normalize } from 'styled-normalize';
     body {
         margin: 0;
         padding: 0;
-        font-family: ${({ theme}) => theme.fontFamily};
+        font-family: ${({ theme }) => theme.fontFamily};
     }
 
     /* Full heigt layout */
