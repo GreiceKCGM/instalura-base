@@ -4,6 +4,8 @@ import { MenuWrapper } from "./styles/MenuWrapper";
 import { Button } from "../Button";
 import  Text  from "../../foundation/text";
 
+/*alterado */
+
 const links  = [
   {
     texto: 'Home',
