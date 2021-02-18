@@ -1,40 +1,37 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariants } from '../../foundation/text';
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
-import { propToStyle } from '../../../theme/utils/propToStyle';
-
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 const ButtonGhost = css`
-    color: ${(props) => get (props.theme,`colors.${props.variant}.color`)
-    };
+    color: ${(props) => get (props.theme, `colors.${props.variant}.color`)
+};
     background: transparent;
-`
+`;
 
 const ButtonDefault = css`
     color: white;
     background-color: ${(props) => get(props.theme, `colors.${props.variant}.color`)
-    };
-    color: ${(props) => get (props.theme,`colors.${props.variant}.contrastText`)
-    };
+};
+    color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)
+};
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
     border: 0;
     cursor: pointer;
     padding: 12px 26px;
     font-weight: bold;
     opacity: 1;
     border-radius: 8px;
-    
-
     ${(props) => {
-        // console.log('<Button/>', props.variant, props.theme);
-        if(props.ghost) {
-            return ButtonGhost;
-        }
-        return ButtonDefault
-    }}
+    // console.log('<Button/>', props.variant, props.theme);
+    if (props.ghost) {
+      return ButtonGhost;
+    }
+    return ButtonDefault;
+  }}
     transition: opacity ${({ theme }) => theme.transition};
     border-radius: ${({ theme }) => theme.borderRadius};
     /* ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)} */
@@ -44,19 +41,17 @@ export const Button = styled.button`
     }
 
     ${breakpointsMedia({
-        xs: css`
-            /*All devices*/
-            ${TextStyleVariants.smallestException}
-        `,
-        md: css`
-            /* From md breakpoint*/
-            ${TextStyleVariants.paragraph1}
-        `,
-    })}
+    xs: css`
+        /*All devices*/
+        ${TextStyleVariants.smallestException}
+    `,
+    md: css`
+        /* From md breakpoint*/
+        ${TextStyleVariants.paragraph1}
+    `,
+  })}
 
     ${propToStyle('margin')}
     ${propToStyle('display')}
-
-    
-
 `;
+export default Button;

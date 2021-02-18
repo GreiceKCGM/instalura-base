@@ -1,23 +1,23 @@
-import React from "react";
-import { Logo } from "../../../theme/logo";
-import { MenuWrapper } from "./styles/MenuWrapper";
-import { Button } from "../Button";
-import  Text  from "../../foundation/text";
+import React from 'react';
+import Logo from '../../../theme/logo';
+import MenuWrapper from './styles/MenuWrapper';
+import Button from '../Button';
+import Text from '../../foundation/text';
 
-/*alterado */
+/* alterado */
 
-const links  = [
+const links = [
   {
     texto: 'Home',
-    url: '/home'
+    url: '/home',
   },
   {
     texto: 'Perguntas frequentes',
-    url: '/faq'
+    url: '/faq',
   },
   {
     texto: 'Sobre',
-    url: '/sobre'
+    url: '/sobre',
   },
 ]
 export default function Menu() {
@@ -27,18 +27,18 @@ export default function Menu() {
         <Logo />
       </MenuWrapper.LeftSide>
       <MenuWrapper.CentralSide>
-        {links.map((link) => {
-          return <li key={link.url}>
+        {links.map((link) => (
+          <li key={link.url}>
             <Text variant="paragraph1" tag="a" href={link.url}>
               {link.texto}
             </Text>
           </li>
-        })}
+        ))}
       </MenuWrapper.CentralSide>
       <MenuWrapper.RightSide>
         <Button ghost variant="secondary.main">Entrar</Button>
         <Button variant="primary.main">Cadastrar</Button>
-      </MenuWrapper.RightSide> 
+      </MenuWrapper.RightSide>
     </MenuWrapper>
-  )
+  );
 }
