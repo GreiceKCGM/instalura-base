@@ -15,13 +15,23 @@ export default function Home() {
       justifyContent: 'space-between',
     }}>
       <Menu />
-      <Grid.Container>
+      <Grid.Container
+        marginTop = {{ 
+          xs:'32px',
+          md: '75px',
+        
+        }}
+      >
         <Grid.Row>
           <Grid.Col
           // value={4}
           // value={{xs: 12, md: 5}}
           offset={{ xs:0, md:1}}  //desclocando uma coluna
           value={{ xs:12, md:5}} //ocupando a quantidade informada em colunas no grid ( xs mobile)
+          display="flex"
+          alignItems="flex-start"
+          justifyContent="center"
+          flexDirection="column"
           >
           <div>
             <Text
