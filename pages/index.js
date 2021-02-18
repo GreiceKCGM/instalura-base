@@ -18,18 +18,20 @@ export default function Home() {
       <Grid.Container>
         <Grid.Row>
           <Grid.Col
-            offset={{ xs:0, md:1}}  //desclocando uma coluna
-            value={{ xs:12, md:5}} //ocupando a quantidade informada em colunas no grid ( xs mobile)
+          // value={4}
+          value={{xs: 12, md: 5}}
+          // offset={{ xs:0, md:1}}  //desclocando uma coluna
+          // value={{ xs:12, md:5}} //ocupando a quantidade informada em colunas no grid ( xs mobile)
+        
           
-          >
-            Textos
-
+          >Textos
           </Grid.Col>
+
           <Grid.Col
-            value={{ 
-              xs:12, 
-              md: 6 // é a soma do grid anterior (1+5)
-            }}
+            // value={{ 
+            //   xs:12, 
+            //   md: 6 // é a soma do grid anterior (1+5)
+            // }}
           
           >
             <img src="https://placehold.it/400x400"/>.
