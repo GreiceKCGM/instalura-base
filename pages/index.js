@@ -19,12 +19,46 @@ export default function Home() {
         <Grid.Row>
           <Grid.Col
           // value={4}
-          value={{xs: 12, md: 5}}
-          // offset={{ xs:0, md:1}}  //desclocando uma coluna
-          // value={{ xs:12, md:5}} //ocupando a quantidade informada em colunas no grid ( xs mobile)
-        
-          
-          >Textos
+          // value={{xs: 12, md: 5}}
+          offset={{ xs:0, md:1}}  //desclocando uma coluna
+          value={{ xs:12, md:5}} //ocupando a quantidade informada em colunas no grid ( xs mobile)
+          >
+          <div>
+            <Text
+              variant="title"
+              tag="h1"
+              color="tertiary.main"
+              textAlign={{
+                xs: 'center',
+                md: 'left',
+              }}
+            >
+              Compartilhe momentos e conecte-se com amigos
+            </Text>
+            <Text
+              variant="paragraph1"
+              tag="p"
+              color="tertiary.light"
+              textAlign={{
+                xs: 'center',
+                md: 'left',
+              }}
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+            </Text>
+
+            <Button
+              variant="primary.main"
+              margin={{
+                xs: 'auto',
+                md: 'initial',
+              }}
+              display="block"
+            >
+              Cadastrar
+            </Button>
+        </div>
           </Grid.Col>
 
           <Grid.Col
@@ -42,42 +76,7 @@ export default function Home() {
 
       </Grid.Container>
 
-      <div>
-        <Text
-          variant="title"
-          tag="h1"
-          color="tertiary.main"
-          textAlign={{
-            xs: 'center',
-            md: 'left',
-          }}
-        >
-          Compartilhe momentos e conecte-se com amigos
-        </Text>
-        <Text
-          variant="paragraph1"
-          tag="p"
-          color="tertiary.light"
-          textAlign={{
-            xs: 'center',
-            md: 'left',
-          }}
-        >
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
-        </Text>
-
-        <Button
-          variant="primary.main"
-          margin={{
-            xs: 'auto',
-            md: 'initial',
-          }}
-          display="block"
-        >
-          Cadastrar
-        </Button>
-      </div>
+      
 
       <Footer />
     </div>
