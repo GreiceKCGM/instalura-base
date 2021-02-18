@@ -19,7 +19,7 @@ const links = [
     texto: 'Sobre',
     url: '/sobre',
   },
-]
+];
 export default function Menu() {
   return (
     <MenuWrapper>

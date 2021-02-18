@@ -94,6 +94,7 @@ const Grid = {
         : '',
     });
   }}
+  // eslint-disable-next-line func-names
   ${function ({ offset }) {
     if (typeof offset === 'number') {
       return css`
