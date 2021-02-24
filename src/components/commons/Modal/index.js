@@ -15,43 +15,40 @@ bottom: 0;
 margin: auto;
 overflow: scroll;
 
-${(isopen) => {
-  
-    if (isopen) {
-    return css`
+${({ isOpen }) => {
+    if (isOpen) {
+      return css`
     opacity: 1;
-    pointer-events:all;`
+    pointer-events:all;`;
     }
-  return css`
-  opacity:0;
-  pointer-events:none;
-  `;
-}}
+    return css`
+    opacity:0;
+    pointer-events:none;
+    `;
+  }}`;
 
-opacity:0;
-pointer-events: none;
-
-opacity:0;
-pointer-events: all;
-
-`;
-
-function Modal({ isOpen, onClose, childen}) {
+function Modal({ isOpen, onClose, children }) {
   return (
-    <ModalWrapper isopen={isOpen}
-    onClick={() => {
-      //isOpen = false;
-      onClose();
-    }}
-    
+    <ModalWrapper
+      isOpen={isOpen}
+      onClick={(event) => {
+        const isSafeArea = event.target.closest('[data-modal-safe-area="true"]');
+        // isOpen = false;
+        if (!isSafeArea) {
+          onClose();
+        }
+      }}
+
     >
-      {childen }
+      {children({
+        'data-modal-safe-area': 'true',
+      })}
     </ModalWrapper>
   );
 }
 Modal.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
-    childen: PropTypes.node.isRequired,
-    onClose: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 export default Modal;

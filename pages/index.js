@@ -7,7 +7,6 @@ import Grid from '../src/components/foundation/layout/grid';
 import Box from '../src/components/foundation/layout/Box';
 import Modal from '../src/components/commons/Modal';
 
-
 export default function Home() {
   const [isModalOpen, setModalState] = React.useState(false);
 
@@ -26,8 +25,11 @@ export default function Home() {
       {/*
       Solid
       S = Single Responsability
-      0 = Open Closed 
+      0 = Open Closed
       (pode acrescentar funcionalidades, mas está fechado pra modificar o que já tem)
+      L = LisKov Substitution
+      I = Interface Segregations
+      D = Dependency Inversion
       */}
       {/* {isModalOpen && <Modal />} */}
       <Modal
@@ -36,9 +38,20 @@ export default function Home() {
           setModalState(false);
         }}
       >
-        Nosso conteúdo pro modal
-      </Modal>
+        {(propsDoModal) => (
 
+          <Box
+            backgroundColor="White"
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...propsDoModal}
+          >
+            <div>
+
+              Nosso conteúdo pro modal
+            </div>
+          </Box>
+        )}
+      </Modal>
       <Menu />
       <Grid.Container
         marginTop={{
@@ -93,6 +106,8 @@ export default function Home() {
                 display="block"
                 onClick={() => {
                   // isModalOpen = true;
+                  // eslint-disable-next-line no-console
+                  console.log('isModalOpen', isModalOpen);
                   setModalState(!isModalOpen);// novo state sendo atribuido.
                 }}
               >
