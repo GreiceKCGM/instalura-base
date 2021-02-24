@@ -1,35 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import Footer from '../src/components/commons/Footer';
 import Menu from '../src/components/commons/Menu';
 import Text from '../src/components/foundation/text';
 import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/grid';
 import Box from '../src/components/foundation/layout/Box';
+import Modal from '../src/components/commons/Modal';
 
-
-const ModalWrapper = styled.div`
-display: flex;
-flex-direction: column;
-align-items: stretch;
-background: rgbs(0,0,0,0.1);
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-margin: auto;
-overflow: scroll;
-
-`;
-
-function Modal() {
-  return (
-    <ModalWrapper>
-      Nosso modal Maravilhoso
-    </ModalWrapper>
-  );
-}
 
 export default function Home() {
   const [isModalOpen, setModalState] = React.useState(false);
@@ -49,8 +26,18 @@ export default function Home() {
       {/*
       Solid
       S = Single Responsability
+      0 = Open Closed 
+      (pode acrescentar funcionalidades, mas está fechado pra modificar o que já tem)
       */}
-      {isModalOpen && <Modal />}
+      {/* {isModalOpen && <Modal />} */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setModalState(false);
+        }}
+      >
+        Nosso conteúdo pro modal
+      </Modal>
 
       <Menu />
       <Grid.Container
