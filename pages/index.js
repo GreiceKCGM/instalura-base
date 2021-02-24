@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Footer from '../src/components/commons/Footer';
 import Menu from '../src/components/commons/Menu';
 import Text from '../src/components/foundation/text';
@@ -6,7 +7,33 @@ import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/grid';
 import Box from '../src/components/foundation/layout/Box';
 
+
+const ModalWrapper = styled.div`
+display: flex;
+flex-direction: column;
+align-items: stretch;
+background: rgbs(0,0,0,0.1);
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+overflow: scroll;
+
+`;
+
+function Modal() {
+  return (
+    <ModalWrapper>
+      Nosso modal Maravilhoso
+    </ModalWrapper>
+  );
+}
+
 export default function Home() {
+  const [isModalOpen, setModalState] = React.useState(false);
+
   return (
     <Box
       flex={1}
@@ -19,6 +46,12 @@ export default function Home() {
       backgroundPosition="bottom right"
 
     >
+      {/*
+      Solid
+      S = Single Responsability
+      */}
+      {isModalOpen && <Modal />}
+
       <Menu />
       <Grid.Container
         marginTop={{
@@ -71,6 +104,10 @@ export default function Home() {
                   md: 'initial',
                 }}
                 display="block"
+                onClick={() => {
+                  // isModalOpen = true;
+                  setModalState(!isModalOpen);// novo state sendo atribuido.
+                }}
               >
                 Cadastrar
               </Button>
