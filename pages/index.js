@@ -20,7 +20,6 @@ export default function Home() {
       backgroundImage="url(/images/bubbles.svg)"
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
-
     >
       {/*
       Solid
@@ -39,16 +38,12 @@ export default function Home() {
         }}
       >
         {(propsDoModal) => (
-
           <Box
             backgroundColor="White"
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...propsDoModal}
           >
-            <div>
-
-              Nosso conteúdo pro modal
-            </div>
+            <div>Nosso conteúdo pro modal</div>
           </Box>
         )}
       </Modal>
@@ -57,13 +52,12 @@ export default function Home() {
         marginTop={{
           xs: '32px',
           md: '75px',
-
         }}
       >
         <Grid.Row>
           <Grid.Col
-          // value={4}
-          // value={{xs: 12, md: 5}}
+            // value={4}
+            // value={{xs: 12, md: 5}}
             offset={{ xs: 0, md: 1 }} // desclocando uma coluna
             // eslint-disable-next-line max-len
             value={{ xs: 12, md: 5 }} // ocupando a quantidade informada em colunas no grid ( xs mobile)
@@ -93,8 +87,9 @@ export default function Home() {
                   md: 'left',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industrys standard dummy text
+                ever since the 1500s.
               </Text>
 
               <Button
@@ -108,7 +103,7 @@ export default function Home() {
                   // isModalOpen = true;
                   // eslint-disable-next-line no-console
                   console.log('isModalOpen', isModalOpen);
-                  setModalState(!isModalOpen);// novo state sendo atribuido.
+                  setModalState(!isModalOpen); // novo state sendo atribuido.
                 }}
               >
                 Cadastrar
@@ -116,18 +111,14 @@ export default function Home() {
             </div>
           </Grid.Col>
 
-          <Grid.Col
-            value={{ xs: 12, md: 6 }}
-          >
+          <Grid.Col value={{ xs: 12, md: 6 }}>
             <img
               alt="Imagem de celular com páginas internas do projeto com o perfil do Cage"
               style={{ display: 'block', margin: 'auto' }}
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
             />
           </Grid.Col>
-
         </Grid.Row>
-
       </Grid.Container>
       <Footer />
     </Box>
