@@ -73,7 +73,7 @@ function Modal({ isOpen, onClose, children }) {
 }
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 export default Modal;
