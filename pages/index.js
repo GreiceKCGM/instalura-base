@@ -6,9 +6,10 @@ import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/grid';
 import Box from '../src/components/foundation/layout/Box';
 import Modal from '../src/components/commons/Modal';
+import FormCadastro from '../src/components/patterns/FormCadastro';
 
 export default function Home() {
-  const [isModalOpen, setModalState] = React.useState(false);
+  const [isModalOpen, setModalState] = React.useState(true);
 
   return (
     <Box
@@ -38,8 +39,6 @@ export default function Home() {
         }}
       >
         {(propsDoModal) => (
-
-          // eslint-disable-next-line react/jsx-no-undef
           <FormCadastro propsDoModal={propsDoModal} />
         )}
 
