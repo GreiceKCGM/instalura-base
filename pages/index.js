@@ -38,14 +38,11 @@ export default function Home() {
         }}
       >
         {(propsDoModal) => (
-  <Box
-    backgroundColor="white"
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    {...propsDoModal}
-  >
-            <div>Nosso conteúdo pro modal</div>
-          </Box>
+
+          // eslint-disable-next-line react/jsx-no-undef
+          <FormCadastro propsDoModal={propsDoModal} />
         )}
+
       </Modal>
       <Menu />
       <Grid.Container
