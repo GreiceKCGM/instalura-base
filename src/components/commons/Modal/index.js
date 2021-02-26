@@ -7,7 +7,7 @@ const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: rgbs(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -38,7 +38,7 @@ function Modal({ isOpen, onClose, children }) {
       isOpen={isOpen}
       onClick={(event) => {
         const isSafeArea = event.target.closest(
-          '[data-modal-safe-area="true"]'
+          '[data-modal-safe-area="true"]',
         );
         // isOpen = false;
         if (!isSafeArea) {

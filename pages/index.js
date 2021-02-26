@@ -38,11 +38,11 @@ export default function Home() {
         }}
       >
         {(propsDoModal) => (
-          <Box
-            backgroundColor="White"
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...propsDoModal}
-          >
+  <Box
+    backgroundColor="white"
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...propsDoModal}
+  >
             <div>Nosso conteúdo pro modal</div>
           </Box>
         )}
