@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import styled, { css } from 'styled-components';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
@@ -42,8 +43,9 @@ export const TextStyleVariants = {
 };
 
 const TextBase = styled.span`
-  
+
   ${(props) => TextStyleVariants[props.variants]}
+   color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
 
    ${propToStyle('textAlign')}
    ${propToStyle('marginBottom')}
@@ -68,12 +70,13 @@ export default function Text({
 }
 
 Text.propTypes = {
-  children: PropTypes.node.isRequired,
-  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'a', 'span']),
-  variant: PropTypes.oneOf(['paragraph1', 'smallestException', 'title']),
+  children: PropTypes.node,
+  tag: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
+  children: null,
 };
