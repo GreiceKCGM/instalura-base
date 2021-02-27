@@ -1,4 +1,7 @@
 import React from 'react';
+import { Lottie } from '@crello/react-lottie';
+import errorAnimation from './animations/error.json';
+import successAnimation from './animations/success.json';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import Box from '../../foundation/layout/Box';
@@ -46,12 +49,12 @@ function FormContent() {
         };
         fetch('https://instalura-api.vercel.app/api/users', {
           method: 'POST',
-          headers:{
+          headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(userDTO),
         })
-          .then((respostaDoServidor)=>{
+          .then((respostaDoServidor) => {
             if (respostaDoServidor.ok) {
               return respostaDoServidor.json();
             }
@@ -60,10 +63,10 @@ function FormContent() {
           .then((respostaConvertidaEmObjeto) => {
             setSubmissionStatus(formStates.DONE);
             // eslint-disable-next-line no-console
-            console.log('respostaConvertidaEmObjeto');
+            console.log(respostaConvertidaEmObjeto);
           })
           .catch((error) => {
-            submissionStatus(formStates.ERROR);
+            setSubmissionStatus(formStates.ERROR);
             // eslint-disable-next-line no-console
             console.error(error);
           });
@@ -115,11 +118,14 @@ function FormContent() {
       </Button>
 
       {isFormSubmited && submissionStatus === formStates.DONE && (
-        <Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+        >
           <Lottie
             width="150px"
             height="150px"
-            config={{ animationData: errorAnimation, loop: true, autoplay: true }}
+            config={{ animationData: successAnimation, loop: true, autoplay: true }}
           />
           {/* https://lottiefiles.com/43920-success-alert-icon */}
         </Box>
@@ -135,7 +141,7 @@ function FormContent() {
             height="150px"
             config={{ animationData: errorAnimation, loop: true, autoplay: true }}
           />
-          {/* https://lottiefiles.com/43920-success-alert-icon */}
+          {/* https://lottiefiles.com/18290-first-try */}
         </Box>
       )}
     </form>
