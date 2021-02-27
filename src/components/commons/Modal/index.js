@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle, css } from 'styled-components';
 import { motion } from 'framer-motion';
+import Button from '../Button';
+import Box from '../../foundation/layout/Box';
 
 const ModalWrapper = styled.div`
   display: flex;
@@ -75,6 +77,18 @@ function Modal({ isOpen, onClose, children }) {
         {children({
           'data-modal-safe-area': 'true',
         })}
+        <Box
+          data-modal-safe-area="true"
+          position="absolute"
+          top="10px"
+          right="10px"
+        >
+          <Button
+            onClick={() => onClose()}
+          >
+            X
+          </Button>
+        </Box>
       </motion.div>
     </ModalWrapper>
   );

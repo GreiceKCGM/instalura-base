@@ -61,5 +61,7 @@ const Button = styled.button`
 
     ${propToStyle('margin')}
     ${propToStyle('display')}
+
+
 `;
 export default Button;

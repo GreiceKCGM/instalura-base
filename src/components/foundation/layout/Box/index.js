@@ -13,6 +13,9 @@ const Box = styled.div`
     ${propToStyle('backgroundPosition')}
     ${propToStyle('boxShadow')}
     ${propToStyle('padding')}
+    ${propToStyle('position')}
+    ${propToStyle('top')}
+    ${propToStyle('right')}
 
 `;
 
