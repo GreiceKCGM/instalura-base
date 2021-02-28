@@ -17,6 +17,7 @@ const Box = styled.div`
     ${propToStyle('top')}
     ${propToStyle('right')}
 
+
 `;
 
 export default Box;
