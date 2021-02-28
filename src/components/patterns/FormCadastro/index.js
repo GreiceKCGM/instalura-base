@@ -58,10 +58,11 @@ function FormContent() {
             if (respostaDoServidor.ok) {
               return respostaDoServidor.json();
             }
-            throw new Error('Não foi possivel cadastrar o usuário agora :(');
+            throw new Error('Não foi possivel cadastrar o usuário agora ');
           })
           .then((respostaConvertidaEmObjeto) => {
             setSubmissionStatus(formStates.DONE);
+            setUserInfo({ nome: '', usuario: '' });
             // eslint-disable-next-line no-console
             console.log(respostaConvertidaEmObjeto);
           })
