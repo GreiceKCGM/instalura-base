@@ -1,53 +1,18 @@
 import React from 'react';
-import Footer from '../src/components/commons/Footer';
-import Menu from '../src/components/commons/Menu';
 import Text from '../src/components/foundation/text';
 import Button from '../src/components/commons/Button';
 import Grid from '../src/components/foundation/layout/grid';
+import WebsitePageWrapper, { WebsitePageContext } from '../src/components/wrappers/WebsitePage';
 import Box from '../src/components/foundation/layout/Box';
-import Modal from '../src/components/commons/Modal';
-import FormCadastro from '../src/components/patterns/FormCadastro';
-import { SEO } from '../src/components/commons/SEO';
 
-export default function Home() {
-  const [isModalOpen, setModalState] = React.useState(false);
-
+function HomeScreen() {
+  const websitePageContext = React.useContext(WebsitePageContext);
   return (
     <Box
-      flex={1}
       display="flex"
-      flexWrap="wrap"
       flexDirection="column"
-      justifyContent="space-between"
-      backgroundImage="url(/images/bubbles.svg)"
-      backgroundRepeat="no-repeat"
-      backgroundPosition="bottom right"
+      flex="1"
     >
-      <SEO headTitle="Home" />
-      {/*
-      Solid
-      S = Single Responsability
-      0 = Open Closed
-      (pode acrescentar funcionalidades, mas está fechado pra modificar o que já tem)
-      L = LisKov Substitution
-      I = Interface Segregations
-      D = Dependency Inversion
-      */}
-      {/* {isModalOpen && <Modal />} */}
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => {
-          setModalState(false);
-        }}
-      >
-        {(propsDoModal) => (
-          <FormCadastro propsDoModal={propsDoModal} />
-        )}
-
-      </Modal>
-      <Menu
-        onCadastrarClick={() => setModalState(true)}
-      />
       <Grid.Container
         marginTop={{
           xs: '32px',
@@ -100,10 +65,7 @@ export default function Home() {
                 }}
                 display="block"
                 onClick={() => {
-                  // isModalOpen = true;
-                  // eslint-disable-next-line no-console
-                  console.log('isModalOpen', isModalOpen);
-                  setModalState(!isModalOpen); // novo state sendo atribuido.
+                  websitePageContext.toggleModalCadastro();
                 }}
               >
                 Cadastrar
@@ -120,7 +82,23 @@ export default function Home() {
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>
-      <Footer />
     </Box>
+  );
+}
+
+export default function Home() {
+  return (
+    <WebsitePageWrapper
+      seoProps={{
+        headTitle: 'Home',
+      }}
+      pageBoxProps={{
+        backgroundImage: 'url(/images/bubbles.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'bottom right',
+      }}
+    >
+      <HomeScreen />
+    </WebsitePageWrapper>
   );
 }
