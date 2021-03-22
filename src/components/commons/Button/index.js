@@ -68,7 +68,7 @@ const ButtonWrapper = styled.button`
 
 
 `;
-export function Button({ href, children, ...props }) {
+const Button = ({ href, children, ...props }) => {
   const hasHref = Boolean(href);
   const tag = hasHref ? Link : 'button';
   return (
@@ -80,7 +80,7 @@ export function Button({ href, children, ...props }) {
       {children}
     </ButtonWrapper>
   );
-}
+};
 
 Button.defaultProps = {
   href: undefined,
@@ -90,3 +90,5 @@ Button.propTypes = {
   href: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+export default Button;
