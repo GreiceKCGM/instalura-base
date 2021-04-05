@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../src/components/commons/Button';
-import { Link } from '../../src/components/commons/Link';
+import Link from '../../src/components/commons/Link';
 import TextField from '../../src/components/forms/TextField';
 import Box from '../../src/components/foundation/layout/Box';
 import Grid from '../../src/components/foundation/layout/grid';
