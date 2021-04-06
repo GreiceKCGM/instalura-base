@@ -20,8 +20,8 @@ function FormContent() {
   const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
 
   const [userInfo, setUserInfo] = React.useState({
-    usuario: 'greiceKelli01',
-    nome: 'Greice Kelli',
+    usuario: '',
+    nome: '',
   });
 
   function handleChange(event) {
