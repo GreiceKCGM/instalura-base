@@ -1,4 +1,5 @@
 import { setCookie, destroyCookie } from 'nookies';
+import { isStagingEnv } from '../../infra/env/isStaginEnv';
 
 async function HttpClient(url, { headers, body, ...options }) {
   return fetch(url, {
@@ -18,10 +19,15 @@ async function HttpClient(url, { headers, body, ...options }) {
       throw new Error('Falha em pegar os dados do servidor!');
     });
 }
+const BASE_URL = isStagingEnv
+// Back End de DEV
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+// Back End de Prod
+  : 'https://instalura-api.omariosouto.vercel.app';
 
 export const loginService = {
   async login({ username, password }) {
-    return HttpClient('https://instalura-api-git-master-omariosouto.vercel.app/api/login', {
+    return HttpClient(`${BASE_URL}/api/login`, {
       method: 'POST',
       body: {
         username, // 'omariosouto'
