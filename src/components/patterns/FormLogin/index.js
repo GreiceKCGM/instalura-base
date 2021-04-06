@@ -15,8 +15,8 @@ export default function LoginForm() {
     initialValues,
     onSubmit: (values) => {
       loginService.login({
-        username: values.usuario,
-        password: values.senha,
+        username: values.usuario, // 'omariosouto'
+        password: values.senha, // 'senhasegura'
       })
         .then(() => {
           router.push('/app/profile');
@@ -25,19 +25,19 @@ export default function LoginForm() {
   });
 
   return (
-    <form id="formCadastro" onSubmit={form.hamdleChange}>
+    <form id="formCadastro" onSubmit={form.handleSubmit}>
       <TextField
         placeholder="Usuário"
         name="usuario"
         value={form.values.usuario}
-        onChange={form.hamdleChange}
+        onChange={form.handleChange}
       />
       <TextField
         placeholder="Senha"
         name="senha"
         type="password"
         value={form.values.senha}
-        onChange={form.hamdleChange}
+        onChange={form.handleChange}
       />
 
       <Button

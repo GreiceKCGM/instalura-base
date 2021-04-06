@@ -9,7 +9,7 @@ export function useForm({ initialValues, onSubmit }) {
       event.preventDefault();
       onSubmit(values);
     },
-    hamdleChange(event) {
+    handleChange(event) {
       const fieldName = event.target.getAttribute('name');
       const { value } = event.target;
 
@@ -18,6 +18,5 @@ export function useForm({ initialValues, onSubmit }) {
         [fieldName]: value,
       }));
     },
-
   };
 }
