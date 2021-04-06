@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function useForm({ initialValues, onSubmit }) {
+export function useForm({ initialValues, onSubmit }) {
   const [values, setValues] = React.useState(initialValues);
 
   return {
