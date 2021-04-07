@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariants } from '../../foundation/text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import propToStyle from '../../../theme/utils/propToStyle';
+import propToStyle from '../../../theme/utils/propToStyle/propToStyle';
 import Link from '../Link';
 
 const ButtonGhost = css`
