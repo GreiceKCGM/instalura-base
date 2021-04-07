@@ -6,7 +6,7 @@ function propToStyle(propName) {
 
     if (typeof propValue === 'string' || typeof propValue === 'number') {
       return {
-        // textAlign: props.textAlign
+        // textAlign: props.textAlign usado para fazer testes
         [propName]: propValue,
       };
     }
