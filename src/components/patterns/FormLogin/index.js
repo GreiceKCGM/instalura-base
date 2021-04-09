@@ -1,9 +1,19 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import *yup from 'yup';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import { useForm } from '../../../infra/hooks/forms/useForm';
 import { loginService } from '../../../services/login/loginService';
+
+const loginScheme = yup.object().shape({
+  usuario: yup
+  .string().required('"Usario" é obrigatório')
+  .min(3, 'Preencha ao menos 3 caracteres'),
+  senha: yup
+  .string()
+  .min(8, 'Sua senha precisa ter ao menos 8 caracteres'),
+});
 
 export default function LoginForm() {
   const router = useRouter();
@@ -49,6 +59,7 @@ export default function LoginForm() {
           md: 'initial',
         }}
         fullWidth
+        disabled={form.isFormDisabled}
       >
         Entrar
       </Button>
