@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
-import { TextStyleVariants } from '../../foundation/text';
+import { TextStyleVariantsMap } from '../../foundation/text';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 import propToStyle from '../../../theme/utils/propToStyle/propToStyle';
 import Link from '../Link';
@@ -47,11 +47,11 @@ const ButtonWrapper = styled.button`
     ${breakpointsMedia({
     xs: css`
         /*All devices*/
-        ${TextStyleVariants.smallestException}
+        ${TextStyleVariantsMap.smallestException}
     `,
     md: css`
         /* From md breakpoint*/
-        ${TextStyleVariants.paragraph1}
+        ${TextStyleVariantsMap.paragraph1}
     `,
   })}
 
