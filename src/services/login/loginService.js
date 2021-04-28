@@ -31,7 +31,7 @@ export const loginService = {
         }
         const DAY_IN_SECONDS = 86400;
         // Salvar o Token
-        setCookieModule(null, 'APP_TOKEN', token, {
+        setCookieModule(null, LOGIN_COOKIE_APP_TOKEN, token, {
           path: '/',
           maxAge: DAY_IN_SECONDS * 7,
         });
