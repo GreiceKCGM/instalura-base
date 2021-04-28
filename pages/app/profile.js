@@ -18,8 +18,6 @@ export async function getServerSideProps(ctx) {
   const auth = authService(ctx);
   const hasActiveSession = await auth.hasActiveSession();
 
-  console.log(hasActiveSession);
-
   if (hasActiveSession) {
     const session = await auth.getSession();
     const profilePage = await userService.getProfilePage(ctx);
@@ -34,8 +32,8 @@ export async function getServerSideProps(ctx) {
     };
   }
 
-  // ctx.res.writeHead(307, { location: '/login' });
-  // ctx.res.end();
+  ctx.res.writeHead(307, { location: '/login' });
+  ctx.res.end();
 
   return {
     props: {},

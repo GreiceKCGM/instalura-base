@@ -13,8 +13,6 @@ const BASE_URL = isStagingEnv
 export const authService = (ctx) => {
   const cookies = parseCookies(ctx);
   const token = cookies[LOGIN_COOKIE_APP_TOKEN];
-  console.log(ctx);
-  console.log(token);
 
   return {
     async getToken() {
